@@ -8,13 +8,13 @@ function match_data(parent_file, children_file, display) {
 
 	fs.readFile(parent_file, function(err, data) {
 		if (err) {
-			throw err;
+			console.log("File tidak ditemukan")
 		} else {
 			let parentData = JSON.parse(data);
 			// console.log(parentData);
 			fs.readFile(children_file, function(err, data) {
 				if(err) {
-					throw err;
+					console.log("File tidak ditemukan")
 				} else {
 					let childData = JSON.parse(data)
 					// console.log(typeof childData)
