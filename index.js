@@ -1,7 +1,7 @@
 const fs = require("fs");
 const sleep = require("sleep");
 
-function match_data(parent_file, children_file) {
+function match_data(parent_file, children_file, callback) {
   // Code here
 
   fs.readFile(parent_file, function(err, data) {
@@ -46,11 +46,13 @@ function match_data(parent_file, children_file) {
       }
 
       sleep.sleep(5);
-      console.log(result);
+      callback(result)
 
     });
   });
 }
 
-match_data("./parents.json", "./children.json");
+match_data("./parents.json", "./children.json", function(result){
+  console.log(result); 
+});
 console.log("Notification : Data sedang diproses !");
